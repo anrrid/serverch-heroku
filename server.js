@@ -37,7 +37,7 @@ if (clusterMode && cluster.isPrimary) {
     });
 } else{
     const app = express();
-    const PORT = parseInt(process.argv[2]) || 8080;
+    const PORT = process.env.PORT || 8080;
     const httpServer = new HttpServer(app);
     const io = new IOServer(httpServer);
     const advancedOptions = { useNewUrlParser: true, useUnifiedTopology: true }; 
